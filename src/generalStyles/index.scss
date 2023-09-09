@@ -1,0 +1,147 @@
+@use "../generalStyles/variables";
+@use "../generalStyles/mixin";
+
+body {
+  background-color: variables.$background-color;
+  color: variables.$overlay-text;
+  direction: rtl;
+  // It doesn't work because the source doesn't exist
+  font-family: dana,sans-serif;
+}
+.page_container {
+  width: 95%;
+  margin: auto;
+  display: flex;
+}
+.film-component {
+  direction: rtl;
+  h1 {
+    @include mixin.margin(2rem, 1rem, 2rem, 2rem);
+  }
+}
+.home-cmponent {
+  text-align: center;
+  @include mixin.margin(auto, auto, auto, auto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+// navbar
+
+.nav {
+  height: 50px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
+.nav > .page_container > .nav-header {
+  display: inline;
+}
+
+.nav > .page_container > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: variables.$overlay-text;
+  @include mixin.padding(10px, 10px, 10px, 10px);
+  img {
+    width: 33px;
+  }
+}
+
+.nav > .page_container > .nav-btn {
+  display: none;
+}
+
+.nav > .page_container > .nav-links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav > .page_container > .nav-links > a {
+  display: inline-block;
+  @include mixin.padding(13px, 10px, 13px, 10px);
+  text-decoration: none;
+  color: #efefef;
+}
+
+.nav > .page_container > #nav-check {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .nav > .page_container > .nav-header > .nav-title {
+    @include mixin.margin(0, 37px, 0, 0);
+  }
+  .nav > .page_container > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+  .nav > .page_container > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    @include mixin.padding(13px, 13px, 13px, 13px);
+  }
+  .nav > .page_container > .nav-btn > label:hover,
+  .nav > .page_container #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav > .page_container > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav > .page_container > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #333;
+    height: 0px;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+    z-index: 100;
+  }
+  .nav > .page_container > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav > .page_container > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > .page_container > #nav-check:checked ~ .nav-links {
+    height: auto;
+    overflow-y: auto;
+  }
+  .nav > .page_container > nav-links a:checked ~ .nav-links {
+    height: 0;
+    overflow-y: auto;
+  }
+}
+
+section {
+  background-color: #a0a0a0;
+}
+section:before {
+  content: "section";
+  @include mixin.padding(1rem, 1rem, 1rem, 1rem);
+  color: #606060;
+}
+section div {
+  @include mixin.margin(4px, 4px, 4px, 4px);
+  border: 1px solid gray;
+  background-color: white;
+}
+section div p {
+  @include mixin.padding(0, 0, 0, 5rem);
+  @include mixin.margin(0, 0, 0, 0);
+}

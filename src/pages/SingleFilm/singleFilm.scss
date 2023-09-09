@@ -1,0 +1,60 @@
+@use "../../generalStyles/variables";
+@use "../../generalStyles/mixin";
+.duration {
+  direction: rtl;
+}
+
+.film {
+  color: variables.$overlay-text;
+  @include mixin.padding(1rem, 1rem, 1rem, 1rem);
+}
+
+.film-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: revert;
+  text-align: right;
+  margin-top: 20px;
+  @include mixin.padding(10px, 10px, 10px, 10px);
+}
+.film_title {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-family: dana, sans-serif;
+  color: hsl(0, 0%, 100%) !important;
+  margin: 0;
+  padding-top: 0.5rem;
+  margin-right: 13px;
+}
+
+.film_info {
+  @extend .film_title;
+  max-width: 90%;
+  margin-right: 0px;
+  padding-bottom: 0.5rem;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 154px;
+  img {
+    display: block;
+    width: 90%;
+    height: auto;
+    @include mixin.borderRadius(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+    object-fit: cover;
+  }
+}
+
+.image {
+  display: block;
+  width: 90%;
+  height: auto;
+  @include mixin.borderRadius(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+  object-fit: cover;
+}

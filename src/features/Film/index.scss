@@ -1,0 +1,93 @@
+@use "../../generalStyles/variables";
+@use "../../generalStyles/mixin";
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  opacity: 0;
+  transition: 0.5s ease;
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  font-weight: 400;
+  line-height: 0.5rem;
+  font-size: 0.875rem;
+  background-color: variables.$overlay-background;
+  color: variables.$overlay-text;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  @include mixin.padding(0.5rem, 0.5rem, 0.5rem, 0.5rem);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  img {
+    width: 30px;
+    @include mixin.margin(auto, auto, auto, 5px);
+  }
+
+  .imd_box {
+    width: 100%;
+    direction: rtl;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.container {
+  position: relative;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  cursor: pointer;
+  &:hover .overlay {
+    opacity: 1;
+  }
+}
+.container_loading {
+  @extend .container;
+  @include mixin.margin(8px, 8px, 8px, 8px);
+}
+
+.text {
+  color: variables.$overlay-text;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.total {
+  @include mixin.margin(auto, auto, auto, auto);
+  width: 100%;
+  text-align: center;
+}
+
+.films-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  @include mixin.margin(auto, auto, auto, auto);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
